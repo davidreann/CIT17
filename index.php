@@ -29,7 +29,6 @@
 <h1>PHP Basic Exercises</h1>
 
 <?php
-// 1. Introduce Yourself
 echo "<div class='task'><h2>1. Introduce Yourself</h2>";
 $name = "Raf";
 $age = 21;
@@ -37,7 +36,6 @@ $fav_color = "Blue";
 echo "Hi, I’m $name, I am $age years old, and my favorite color is $fav_color.";
 echo "</div>";
 
-// 2. Simple Math
 echo "<div class='task'><h2>2. Simple Math</h2>";
 $a = 10;
 $b = 5;
@@ -47,7 +45,6 @@ echo "Product: " . ($a * $b) . "<br>";
 echo "Quotient: " . ($a / $b);
 echo "</div>";
 
-// 3. Area and Perimeter of a Rectangle
 echo "<div class='task'><h2>3. Area and Perimeter of a Rectangle</h2>";
 $length = 8;
 $width = 5;
@@ -56,14 +53,12 @@ $perimeter = 2 * ($length + $width);
 echo "Area: $area <br> Perimeter: $perimeter";
 echo "</div>";
 
-// 4. Temperature Converter
 echo "<div class='task'><h2>4. Temperature Converter</h2>";
 $celsius = 25;
 $fahrenheit = ($celsius * 9/5) + 32;
 echo "$celsius °C = $fahrenheit °F";
 echo "</div>";
 
-// 5. Swapping Variables
 echo "<div class='task'><h2>5. Swapping Variables</h2>";
 $x = 10;
 $y = 20;
@@ -73,7 +68,6 @@ $y = $temp;
 echo "After swapping: x = $x, y = $y";
 echo "</div>";
 
-// 6. Salary Calculator
 echo "<div class='task'><h2>6. Salary Calculator</h2>";
 $basic_salary = 15000;
 $allowance = 5000;
@@ -82,13 +76,61 @@ $net_salary = $basic_salary + $allowance - $deduction;
 echo "Net Salary: ₱$net_salary";
 echo "</div>";
 
-// 7. BMI Calculator
 echo "<div class='task'><h2>7. BMI Calculator</h2>";
-$weight = 60; // kg
-$height = 1.65; // meters
+$weight = 60;
+$height = 1.65;
 $bmi = $weight / ($height * $height);
 echo "Your BMI is " . round($bmi, 2);
 echo "</div>";
 
-// 8. String Manipulation
-echo "<d
+echo "<div class='task'><h2>8. String Manipulation</h2>";
+$sentence = "Learning PHP is fun and easy!";
+echo "Sentence: $sentence<br>";
+echo "Characters: " . strlen($sentence) . "<br>";
+echo "Words: " . str_word_count($sentence) . "<br>";
+echo "Uppercase: " . strtoupper($sentence) . "<br>";
+echo "Lowercase: " . strtolower($sentence);
+echo "</div>";
+
+echo "<div class='task'><h2>9. Bank Account Simulation</h2>";
+$balance = 1000;
+$deposit = 500;
+$withdraw = 300;
+$balance = $balance + $deposit - $withdraw;
+echo "Current Balance: ₱$balance";
+echo "</div>";
+
+echo "<div class='task'><h2>10. Simple Grading System</h2>";
+$math = 85;
+$english = 90;
+$science = 88;
+$average = ($math + $english + $science) / 3;
+if ($average >= 90) $grade = "A";
+elseif ($average >= 80) $grade = "B";
+elseif ($average >= 70) $grade = "C";
+else $grade = "F";
+echo "Average: " . round($average, 2) . "<br>Grade: $grade";
+echo "</div>";
+
+echo "<div class='task'><h2>11. Currency Converter</h2>";
+$php = 1000;
+$usd_rate = 58.5;
+$eur_rate = 63.2;
+$jpy_rate = 0.39;
+echo "₱$php = $" . round($php / $usd_rate, 2) . " USD<br>";
+echo "₱$php = €" . round($php / $eur_rate, 2) . " EUR<br>";
+echo "₱$php = ¥" . round($php / $jpy_rate, 2) . " JPY";
+echo "</div>";
+
+echo "<div class='task'><h2>12. Travel Cost Estimator</h2>";
+$distance = 150;
+$fuel_consumption = 12;
+$fuel_price = 70;
+$liters_needed = $distance / $fuel_consumption;
+$cost = $liters_needed * $fuel_price;
+echo "Estimated Travel Cost: ₱" . round($cost, 2);
+echo "</div>";
+?>
+
+</body>
+</html>
