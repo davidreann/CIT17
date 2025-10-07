@@ -2,17 +2,32 @@
 <html>
 <head>
     <title>PHP Basic Tasks</title>
+    <Style>
+        body {
+            text-align: center;
+        }
+        .box {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px auto;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            width: 65%;
+        }
+    </Style>
 </head>
 <body>
 
 <h1>PHP Basic Exercises</h1>
 
 <?php
+echo "<div class='box'>";
 echo "<h2>1. Introduce Yourself</h2>";
 $name = "Rafa";
 $age = 21;
 $fav_color = "yellow";
 echo "Hi, Im $name, I am $age years old, and my favorite color is $fav_color.";
+echo "</div>";
 
 echo "<h2>2. Simple Math</h2>";
 $a = 10;
