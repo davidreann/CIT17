@@ -64,22 +64,49 @@ if (isset($_POST['exercise'])) {
     $exercise = $_POST['exercise'];
 
     switch ($exercise) {
-        case 1:
-            echo '<div class="box"><h2>Exercise 1: Introduce Yourself</h2>';
-            $name = "Rafa";
-            $age = 21;
-            $fav_color = "yellow";
-            echo "Hi, I'm $name, I am $age years old, and my favorite color is $fav_color.</div>";
-            break;
+      case 1:
+    echo '<div class="box"><h2>Exercise 1: Introduce Yourself</h2>';
+
+    echo '<form method="post">
+            <input type="hidden" name="exercise" value="1">
+            <label>Name: <input type="text" name="name" required></label><br><br>
+            <label>Age: <input type="number" name="age" required></label><br><br>
+            <label>Favorite Color: <input type="text" name="color" required></label><br><br>
+            <input type="submit" class="button" value="Submit">
+          </form>';
+
+    if (!empty($_POST['name']) && !empty($_POST['age']) && !empty($_POST['color'])) {
+        $name = htmlspecialchars($_POST['name']);
+        $age = (int) $_POST['age'];
+        $fav_color = htmlspecialchars($_POST['color']);
+
+        echo "<br><b>Hi, I'm $name, I am $age years old, and my favorite color is $fav_color.</b>";
+    }
+    echo '</div>';
+    break;
+
         case 2:
             echo '<div class="box"><h2>Exercise 2: Simple Math</h2>';
-            $a = 10;
-            $b = 5;
+            echo '<form method="post">
+                    <input type="hidden" name="exercise" value="2">
+                    <label>a: <input type="number" name="a" required></label><br><br>
+                    <label>b: <input type="number" name="b" required></label><br><br>
+                    <input type="submit" class="button" value="Submit">
+                </form>';
+
+            if (!empty($_POST['a']) && !empty($_POST['b'])) {
+            $a = (int) $_POST['a'];
+            $b = (int) $_POST['b'];
+
+            echo "a = $a <br> b = $b <br><br>";
             echo "Sum: " . ($a + $b) . "<br>";
             echo "Difference: " . ($a - $b) . "<br>";
             echo "Product: " . ($a * $b) . "<br>";
-            echo "Quotient: " . ($a / $b) . "</div>";
-            break;
+            echo "Quotient: " . ($b != 0 ? $a / $b : 'Undefined (division by zero)') . "<br>";
+        }
+    echo "</div>";
+    break;
+
         case 3:
             echo '<div class="box"><h2>Exercise 3: Area and Perimeter of a Rectangle</h2>';
             $length = 8;
@@ -88,12 +115,14 @@ if (isset($_POST['exercise'])) {
             $perimeter = 2 * ($length + $width);
             echo "Length: $length <br> Width: $width <br> <b>Area:</b> $area <br><br> <b>Perimeter:</b> $perimeter</div>";
             break;
+            
         case 4:
             echo '<div class="box"><h2>Exercise 4: Temperature Converter</h2>';
             $celsius = 25;
             $fahrenheit = ($celsius * 9/5) + 32;
             echo "$celsius °C = $fahrenheit °F</div>";
             break;
+
         case 5:
             echo '<div class="box"><h2>Exercise 5: Swapping Variables</h2>';
             $x = 10; $y = 20;
@@ -102,6 +131,7 @@ if (isset($_POST['exercise'])) {
             $y = $temp;
             echo "After swapping: x = $x, y = $y</div>";
             break;
+
         case 6:
             echo '<div class="box"><h2>Exercise 6: Salary Calculator</h2>';
             $basic_salary = 13000;
@@ -110,6 +140,7 @@ if (isset($_POST['exercise'])) {
             $net_salary = $basic_salary + $allowance - $deduction;
             echo "Basic Salary: $basic_salary <br> Allowance: $allowance <br> Deduction: $deduction <br><br> <b>Net Salary:</b> ₱$net_salary</div>";
             break;
+
         case 7:
             echo '<div class="box"><h2>Exercise 7: BMI Calculator</h2>';
             $weight = 60;
@@ -117,6 +148,7 @@ if (isset($_POST['exercise'])) {
             $bmi = $weight / ($height * $height);
             echo "Weight: $weight <br> Height: $height <br><br> Your BMI is " . round($bmi, 2) . "</div>";
             break;
+
         case 8:
             echo '<div class="box"><h2>Exercise 8: String Manipulation</h2>';
             $sentence = "The quick brown fox jumps over the lazy dog.";
@@ -126,6 +158,7 @@ if (isset($_POST['exercise'])) {
             echo "Uppercase: " . strtoupper($sentence) . "<br>";
             echo "Lowercase: " . strtolower($sentence) . "</div>";
             break;
+
         case 9:
             echo '<div class="box"><h2>Exercise 9: Bank Account Simulation</h2>';
             $balance = 1000;
@@ -134,6 +167,7 @@ if (isset($_POST['exercise'])) {
             $balance = $balance + $deposit - $withdraw;
             echo "Balance: $balance <br> Deposit: $deposit <br> Withdraw: $withdraw <br><br> <b>Current Balance:</b> ₱$balance</div>";
             break;
+
         case 10:
             echo '<div class="box"><h2>Exercise 10: Simple Grading System</h2>';
             $math = 85;
@@ -146,6 +180,7 @@ if (isset($_POST['exercise'])) {
             else $grade = "F";
             echo "Grades <br> Math = $math <br> Science = $science <br> English = $english <br> Average: " . round($average, 2) . "<br><br><b>Grade:</b> $grade</div>";
             break;
+
         case 11:
             echo '<div class="box"><h2>Exercise 11: Currency Converter</h2>';
             $php = 1000;
@@ -156,6 +191,7 @@ if (isset($_POST['exercise'])) {
             echo "₱$php = €" . round($php / $eur_rate, 2) . " EUR<br>";
             echo "₱$php = ¥" . round($php / $jpy_rate, 2) . " JPY</div>";
             break;
+            
         case 12:
             echo '<div class="box"><h2>Exercise 12: Travel Cost Estimator</h2>';
             $distance = 150;
